@@ -3,6 +3,10 @@ Bundler.require
 
 require './config.rb'
 
+get '/' do 
+	erb :index
+end
+
 get '/random' do 
 	num_kittens = Kitten.all.size
 	Kitten.find(num_kittens - 1).to_json
