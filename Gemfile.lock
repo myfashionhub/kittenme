@@ -60,7 +60,6 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
-  json
   pg
   pry
   sinatra
