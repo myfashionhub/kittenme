@@ -11,7 +11,7 @@ end
 
 get '/random' do 
 	num_kittens = Kitten.all.size
-	json kitten: Kitten.find(num_kittens - 1).url
+	json kitten: Kitten.find(rand(1..num_kittens)).url
 end
 
 
