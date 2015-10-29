@@ -1,6 +1,19 @@
 Kitten Me
 =====================
 
+### How to use
+- API URL: `http://kittenme.herokuapp.com/`
+
+- Kitten me once
+```
+GET /random
+```
+
+- Get a kitten bomb
+```
+GET /bomb?count=3
+```
+
 ### Getting started
 ```bash
 $ rake db:create_migration NAME=create_kittens
