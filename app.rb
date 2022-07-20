@@ -2,30 +2,33 @@ require 'bundler'
 Bundler.require
 
 require './config.rb'
-require './models/kitten.rb'
+require './seeds.rb'
+
 require 'sinatra/json'
 
 get '/' do 
-	erb :index
+    erb :index
 end
 
-get '/random' do 
-	num_kittens = Kitten.all.size
-	json kitten: Kitten.find(rand(1..num_kittens)).url
-end
+data = Kitten.data
 
+get '/random' do
+  num_kittens = data.size
+  json kitten: data[rand(0..num_kittens-1)]
+end
 
 get '/bomb' do
-	count = params[:count].to_i
-	num_kittens = Kitten.all.size
-	kitten_ids = []
-	while kitten_ids.length < count do
-		rand_num = rand(1..num_kittens)
-		kitten_ids.push(rand_num) if !kitten_ids.include?(rand_num)
-	end
+  count = params[:count].to_i
+  num_kittens = data.size
 
-	kittens = kitten_ids.map do |id|
-		Kitten.find(id)
-	end
-	json kittens: kittens.map { |kitten| kitten.url }
+  urls = []
+  while urls.size < count
+    rand_num = rand(0..num_kittens-1)
+
+    if !urls.include? data[rand_num]
+      urls << data[rand_num]
+    end
+  end
+
+  json kittens: urls
 end
