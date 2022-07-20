@@ -12,6 +12,8 @@ $ rake db:seed
 # Execute db/seeds.rb 
 ```
 
+- Run application: `$ rackup config.ru`
+
 ### Deploy to heroku
 ```
 $ heroku addons:create heroku-postgresql
