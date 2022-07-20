@@ -29,10 +29,21 @@ section {
   cursor: pointer;
 }
 
+.result {
+  margin: 20px auto;
+}
+.result img {
+  max-width: 600px;
+}
 .result img {
   display: block;
   margin: 20px auto;
-  max-width: 600px;
+}
+.result.multiple img {
+  display: inline-block;
+  margin: 10px;
+  max-width: 30%;
+  max-height: 350px;
 }
 
 a {

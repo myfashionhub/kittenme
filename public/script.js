@@ -19,16 +19,20 @@ const getKitten = (type) => {
 
   fetch(path)
     .then((resp) => resp.json())
-    .then((data) => {
-      $('.result').empty();
-
-      if (data.kittens) {
-        data.kittens.forEach((url) => renderImage(url));
-      } else {
-        renderImage(data.kitten);
-      }
-    });
+    .then((data) => render(data));
 };
+
+const render = (data) => {
+  $('.result').empty();
+  $('.result').removeClass('multiple');
+
+  if (data.kittens) {
+    $('.result').addClass('multiple');
+    data.kittens.forEach((url) => renderImage(url));
+  } else {
+    renderImage(data.kitten);
+  }
+}
 
 const renderImage = (url) => {
   const img = $('<img>').attr('src', url);
