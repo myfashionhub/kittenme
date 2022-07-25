@@ -2,21 +2,9 @@ Kitten Me
 =====================
 
 ### Getting started
-```bash
-$ rake db:create_migration NAME=create_kittens
-# Create an ActiveRecord migration in ./db/migrate
-
-$ rake db:migrate
-
-$ rake db:seed
-# Execute db/seeds.rb 
-```
-
+- The app requires Ruby 3.1.2
+- Install dependencies `$ bundle`
 - Run application: `$ rackup config.ru`
 
-### Deploy to heroku
-```
-$ heroku addons:create heroku-postgresql
-$ heroku run rake db:migrate
-$ heroku run rake db:seed
-```
+### Note
+Kitten pics are hardcoded in `seeds.rb`.
